@@ -39,3 +39,6 @@ D:\kuliah_difa\Semester_3\pemrog\ini uas\FinPlanProject_Dawam\FinPlanProject\obj
 D:\kuliah_difa\Semester_3\pemrog\ini uas\FinPlanProject_Dawam\FinPlanProject\obj\Debug\FinPlanProject.csproj.GenerateResource.cache
 D:\kuliah_difa\Semester_3\pemrog\ini uas\FinPlanProject_Dawam\FinPlanProject\obj\Debug\FinPlanProject.csproj.CoreCompileInputs.cache
 D:\kuliah_difa\Semester_3\pemrog\ini uas\FinPlanProject_Dawam\FinPlanProject\obj\Debug\FinPlanProject.csproj.CopyComplete
+D:\kuliah_difa\Semester_3\pemrog\ini uas\FinPlanProject_Dawam\FinPlanProject\obj\Debug\FinPlanProject.View.Kategori.resources
+D:\kuliah_difa\Semester_3\pemrog\ini uas\FinPlanProject_Dawam\FinPlanProject\obj\Debug\FinPlanProject.View.appmenu.resources
+D:\kuliah_difa\Semester_3\pemrog\ini uas\FinPlanProject_Dawam\FinPlanProject\obj\Debug\FinPlanProject.View.Profile.resources

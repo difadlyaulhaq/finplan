@@ -1,4 +1,6 @@
-﻿using System;
+﻿// File: DbContext.cs
+
+using System;
 using System.Data;
 using System.Data.OleDb;
 using System.IO;
@@ -24,13 +26,13 @@ namespace FinPlanProject.Model.Context
                 string connectionString = $"Provider=Microsoft.Jet.OLEDB.4.0;Data Source={databasePath}";
                 conn = new OleDbConnection(connectionString);
                 conn.Open();
-                return conn; 
+                return conn;
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Open Connection Error: {0}", ex.Message);
-                conn?.Dispose(); 
-                throw; 
+                conn?.Dispose();
+                throw;
             }
             finally
             {

@@ -4,6 +4,7 @@ using System.Data.OleDb;
 using System.IO;
 using FinPlanProject.Model.Context;
 using FinPlanProject.Model.Repository;
+using FinPlanProject.View;
 
 namespace FinPlanProject
 {
@@ -34,13 +35,15 @@ namespace FinPlanProject
                 string password = passwordtxt.Text;
 
                 DbContext dbContext = new DbContext();
-                Repository repository = new Repository(dbContext);
-                bool loginSuccessful = repository.LoginUser(username, password);
+                AuthenticationRepository authenticationRepository = new AuthenticationRepository (dbContext);
+                bool loginSuccessful = authenticationRepository.LoginUser(username, password);
 
                 if (loginSuccessful)
                 {
-                    Homepage homepage = new Homepage();
-                    homepage.Show();
+                    //Homepage homepage = new Homepage();
+                    //homepage.Show();
+                    appmenu menu = new appmenu();
+                    menu.Show();
                     this.Hide();
                 }
                 else

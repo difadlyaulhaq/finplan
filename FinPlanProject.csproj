@@ -52,9 +52,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\DataController.cs" />
     <Compile Include="Controller\Usercontroller.cs" />
     <Compile Include="Model\Context\DbContext.cs" />
+    <Compile Include="Model\Repository\AuthenticationRepository.cs" />
+    <Compile Include="Model\Repository\DataRepository.cs" />
     <Compile Include="Model\Repository\Repository.cs" />
+    <Compile Include="Model\Repository\UserRepository.cs" />
     <Compile Include="View\Homepage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,10 +70,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Homepage.resx</DependentUpon>
     </Compile>
-    <Compile Include="View\Homepage2.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Homepage.resx</DependentUpon>
+    <Compile Include="View\Kategori.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Kategori.Designer.cs">
+      <DependentUpon>Kategori.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Login.cs">
       <SubType>Form</SubType>
@@ -83,6 +88,18 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="View\appmenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\appmenu.Designer.cs">
+      <DependentUpon>appmenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Profile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Profile.Designer.cs">
+      <DependentUpon>Profile.cs</DependentUpon>
     </Compile>
     <Compile Include="View\SignUp.cs">
       <SubType>Form</SubType>
@@ -101,6 +118,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Homepage2.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Kategori.resx">
+      <DependentUpon>Kategori.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
       <Generator>ResXFileCodeGenerator</Generator>
@@ -110,6 +130,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\appmenu.resx">
+      <DependentUpon>appmenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Profile.resx">
+      <DependentUpon>Profile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\SignUp.resx">
       <DependentUpon>SignUp.cs</DependentUpon>
@@ -132,7 +158,16 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <None Include="Resources\profile %284%29.png" />
+    <None Include="Resources\profile %283%29.png" />
+    <None Include="Resources\profile %281%29.png" />
+    <None Include="Resources\wallet-filled-money-tool %281%29.png" />
+    <None Include="Resources\bars %281%29.png" />
     <Content Include="Resources\finplannn.png" />
+    <None Include="Resources\user %281%29.png" />
+    <None Include="Resources\home.png" />
+    <None Include="Resources\home %281%29.png" />
+    <None Include="Resources\home %282%29.png" />
     <Content Include="Resources\logo.jpg" />
     <Content Include="Resources\logo.png" />
   </ItemGroup>

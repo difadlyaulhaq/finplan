@@ -7,19 +7,33 @@ namespace FinPlanProject.Controller
 {
     public class UserController
     {
-        private readonly Repository repository;
+        private readonly AuthenticationRepository authentication;
 
         public UserController()
         {
             DbContext dbContext = new DbContext();
-            repository = new Repository(dbContext);
+            authentication = new AuthenticationRepository(dbContext);
+        }
+
+        public bool LoginUser(string username, string password)
+        {
+            try
+            {
+                bool loginSuccessful = authentication.LoginUser(username, password);
+                return loginSuccessful;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
         }
 
         public void RegisterUser(string username, string password, string name, string confirmPassword, string email)
         {
             try
             {
-                bool registrationResult = repository.RegisterUser(username, password, name, confirmPassword, email);
+                bool registrationResult = authentication.RegisterUser(username, password, name, confirmPassword, email);
                 if (registrationResult)
                 {
                     MessageBox.Show("Your account has been successfully created", "Registration Success", MessageBoxButtons.OK, MessageBoxIcon.Information);

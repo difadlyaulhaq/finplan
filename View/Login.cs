@@ -9,19 +9,6 @@ namespace FinPlanProject
     {
         private readonly Sign_Up signUpForm;
 
-        private void pictureBox1_Click (object sender, EventArgs e)
-        {
-
-        }
-        private void txtemail_TextChanged (object sender, EventArgs e)
-        {
-
-        }
-        private void Login_Load(object sender, EventArgs e)
-        {
-
-        }
-
         public Login()
         {
             InitializeComponent();
@@ -35,20 +22,26 @@ namespace FinPlanProject
                 string username = usernametxt.Text;
                 string password = txtpassword.Text;
                 string name = nametxt.Text;
-                string confirmpassword = txtComPassword.Text;
-                string email = txtemail.Text; 
+                string confirmPassword = txtComPassword.Text;
+                string email = txtemail.Text;
 
-                if (password != confirmpassword)
+                if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+                {
+                    MessageBox.Show("Username and password fields cannot be empty", "Registration failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (password != confirmPassword)
                 {
                     MessageBox.Show("Passwords do not match, please re-enter", "Registration failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return; 
+                    return;
                 }
 
                 using (DbContext dbContext = new DbContext())
                 {
-                    Repository repository = new Repository(dbContext);
+                    AuthenticationRepository authenticationRepository = new AuthenticationRepository(dbContext);
 
-                    bool registrationResult = repository.RegisterUser(username, password, name, confirmpassword, email);
+                    bool registrationResult = authenticationRepository.RegisterUser(username, password, name, confirmPassword, email);
 
                     if (registrationResult)
                     {
@@ -67,7 +60,15 @@ namespace FinPlanProject
                 MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            // Add your logic for pictureBox1_Click here
+        }
 
+        private void Login_Load(object sender, EventArgs e)
+        {
+            // Add your logic for Login_Load here
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             signUpForm.Show();

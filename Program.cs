@@ -16,6 +16,7 @@ namespace FinPlanProject
 
             // Start the application by creating an instance of Login form
             Login loginForm = new Login();
+            Homepage homepage = new Homepage();
 
             // Check for the required OLEDB provider
             if (IsOLEDBProviderInstalled())
