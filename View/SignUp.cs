@@ -35,14 +35,12 @@ namespace FinPlanProject
                 string password = passwordtxt.Text;
 
                 DbContext dbContext = new DbContext();
-                AuthenticationRepository authenticationRepository = new AuthenticationRepository (dbContext);
-                bool loginSuccessful = authenticationRepository.LoginUser(username, password);
+                AuthenticationRepository authenticationRepository = new AuthenticationRepository(dbContext);
+                var userData = authenticationRepository.LoginUser(username, password);
 
-                if (loginSuccessful)
+                if (userData != null)
                 {
-                    //Homepage homepage = new Homepage();
-                    //homepage.Show();
-                    appmenu menu = new appmenu();
+                    appmenu menu = new appmenu(userData);
                     menu.Show();
                     this.Hide();
                 }
@@ -63,6 +61,7 @@ namespace FinPlanProject
                 MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
 
 

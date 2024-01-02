@@ -1,8 +1,9 @@
-﻿
-using System;
+﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.OleDb;
 using FinPlanProject.Model.Context;
+using FinPlanProject.Model.Entity;
 
 namespace FinPlanProject.Model.Repository
 {
@@ -59,40 +60,95 @@ namespace FinPlanProject.Model.Repository
             }
         }
 
-        public bool LoginUser(string username, string password)
+        public User LoginUser(string username, string password)
         {
-            bool loginSuccessful = false;
-
+            User user = null;
             try
             {
                 using (OleDbCommand cmd = connection.CreateCommand())
                 {
                     connection.Open();
-                    string loginQuery = "SELECT COUNT(*) FROM tbl_user WHERE username = @username AND [password] = @password";
+                    string loginQuery = "SELECT * FROM tbl_user WHERE username = @username AND [password] = @password";
                     cmd.CommandText = loginQuery;
                     cmd.Parameters.AddWithValue("@username", username);
                     cmd.Parameters.AddWithValue("@password", password);
-                    int count = (int)cmd.ExecuteScalar();
+                    var count = cmd.ExecuteNonQuery();
 
-                    if (count > 0)
+                    using (OleDbDataReader reader = cmd.ExecuteReader())
                     {
-                        loginSuccessful = true;
-                        connection.Close();
+                        if (reader.Read())
+                        {
+                            user = new User
+                            {
+                                Username = reader["username"].ToString(),
+                                Name = reader["name_user"].ToString(),
+                                Email = reader["email_user"].ToString()
+                                // Add other properties if necessary
+                            };
+                        }
+                        else
+                        {
+                            // Username not found, return null
+                            return null;
+                        }
                     }
-                    else
-                    {
-                        loginSuccessful = false;
-
-                    }
-
+                    return user;
                 }
-                return loginSuccessful;
+                //return loginSuccessful;
             }
             catch (OleDbException ex)
             {
                 throw new Exception("Database error: " + ex.Message);
             }
-    
+            finally
+            {
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
         }
+
+        public User GetUserByUsername(string username)
+        {
+            User user = null;
+
+            try
+            {
+                using (OleDbCommand cmd = new OleDbCommand("SELECT * FROM tbl_user WHERE username = @username", connection))
+                {
+                    cmd.Parameters.AddWithValue("@username", username);
+                    connection.Open();
+
+                    using (OleDbDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            // Ambil informasi user dari database
+                            user = new User
+                            {
+                                Username = reader["username"].ToString(),
+                                Name = reader["name_user"].ToString(),
+                                Email = reader["email_user"].ToString()
+                                // Tambahkan informasi lain jika diperlukan
+                            };
+                        }
+                    }
+                }
+            }
+            catch (OleDbException ex)
+            {
+                throw new Exception("Database error: " + ex.Message);
+            }
+            finally
+            {
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+
+            return user;
         }
     }
+}

@@ -19,15 +19,25 @@ namespace FinPlanProject.Controller
         {
             try
             {
-                bool loginSuccessful = authentication.LoginUser(username, password);
-                return loginSuccessful;
+                var loggedInUser = authentication.LoginUser(username, password);
+                if (loggedInUser != null)
+                {
+                    // Successfully logged in
+                    return true;
+                }
+                else
+                {
+                    // Login failed
+                    return false;
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
+                return false; // Handle any exceptions as login failure
             }
         }
+
 
         public void RegisterUser(string username, string password, string name, string confirmPassword, string email)
         {

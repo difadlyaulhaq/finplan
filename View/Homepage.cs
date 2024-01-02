@@ -2,14 +2,16 @@
 using System.Data.OleDb;
 using System.Windows.Forms;
 using FinPlanProject.Model.Context;
+using FinPlanProject.Model.Entity;
 using FinPlanProject.Model.Repository;
+using FinPlanProject.View;
 
 namespace FinPlanProject
 {
     public partial class Homepage : Form
     {
         private readonly DataRepository _dataRepository;
-
+        private User currentUser ;
         private DateTime selectedDateTime;
 
         public Homepage()
@@ -101,10 +103,17 @@ namespace FinPlanProject
             throw new NotImplementedException();
         }
 
+        private void backbutton_Click(object sender, EventArgs e)
+        {
+            appmenu APPMENU = new appmenu(currentUser);
+            APPMENU.Show();
+            this.Hide();
+        }
+
         //private void panel1_Paint(object sender, PaintEventArgs e)
         //{
         //    // Add your logic for panel1_Paint here
-            
+
         //}
     }
 }

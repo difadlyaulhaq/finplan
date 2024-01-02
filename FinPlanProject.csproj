@@ -65,7 +65,7 @@
     <Compile Include="View\Homepage.Designer.cs">
       <DependentUpon>Homepage.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Homepage1.Designer.cs">
+    <Compile Include="View\Homepage2.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Homepage.resx</DependentUpon>

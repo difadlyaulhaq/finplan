@@ -27,3 +27,6 @@ D:\kuliah_difa\Semester_3\pemrog\ini uas\FinPlanProject_Dawam\FinPlanProject\obj
 D:\kuliah_difa\Semester_3\pemrog\ini uas\FinPlanProject_Dawam\FinPlanProject\obj\Release\FinPlanProject.csproj.CopyComplete
 D:\kuliah_difa\Semester_3\pemrog\ini uas\FinPlanProject_Dawam\FinPlanProject\obj\Release\FinPlanProject.exe
 D:\kuliah_difa\Semester_3\pemrog\ini uas\FinPlanProject_Dawam\FinPlanProject\obj\Release\FinPlanProject.pdb
+D:\kuliah_difa\Semester_3\pemrog\ini uas\FinPlanProject_Dawam\FinPlanProject\obj\Release\FinPlanProject.View.Kategori.resources
+D:\kuliah_difa\Semester_3\pemrog\ini uas\FinPlanProject_Dawam\FinPlanProject\obj\Release\FinPlanProject.View.appmenu.resources
+D:\kuliah_difa\Semester_3\pemrog\ini uas\FinPlanProject_Dawam\FinPlanProject\obj\Release\FinPlanProject.View.Profile.resources

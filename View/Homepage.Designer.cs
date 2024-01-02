@@ -48,6 +48,7 @@
             this.button4 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.persentxt = new System.Windows.Forms.TextBox();
+            this.backbutton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -63,7 +64,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1062, 90);
             this.panel1.TabIndex = 0;
-            
             // 
             // pictureBox2
             // 
@@ -242,11 +242,22 @@
             this.persentxt.Size = new System.Drawing.Size(104, 22);
             this.persentxt.TabIndex = 16;
             // 
+            // backbutton
+            // 
+            this.backbutton.Location = new System.Drawing.Point(124, 468);
+            this.backbutton.Name = "backbutton";
+            this.backbutton.Size = new System.Drawing.Size(119, 31);
+            this.backbutton.TabIndex = 17;
+            this.backbutton.Text = "KEMBALI";
+            this.backbutton.UseVisualStyleBackColor = true;
+            this.backbutton.Click += new System.EventHandler(this.backbutton_Click);
+            // 
             // Homepage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1053, 511);
+            this.Controls.Add(this.backbutton);
             this.Controls.Add(this.persentxt);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.button4);
@@ -296,5 +307,6 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.TextBox persentxt;
+        private System.Windows.Forms.Button backbutton;
     }
 }
