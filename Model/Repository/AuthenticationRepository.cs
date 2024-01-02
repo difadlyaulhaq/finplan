@@ -108,47 +108,5 @@ namespace FinPlanProject.Model.Repository
                 }
             }
         }
-
-        public User GetUserByUsername(string username)
-        {
-            User user = null;
-
-            try
-            {
-                using (OleDbCommand cmd = new OleDbCommand("SELECT * FROM tbl_user WHERE username = @username", connection))
-                {
-                    cmd.Parameters.AddWithValue("@username", username);
-                    connection.Open();
-
-                    using (OleDbDataReader reader = cmd.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            // Ambil informasi user dari database
-                            user = new User
-                            {
-                                Username = reader["username"].ToString(),
-                                Name = reader["name_user"].ToString(),
-                                Email = reader["email_user"].ToString()
-                                // Tambahkan informasi lain jika diperlukan
-                            };
-                        }
-                    }
-                }
-            }
-            catch (OleDbException ex)
-            {
-                throw new Exception("Database error: " + ex.Message);
-            }
-            finally
-            {
-                if (connection.State == ConnectionState.Open)
-                {
-                    connection.Close();
-                }
-            }
-
-            return user;
-        }
     }
 }

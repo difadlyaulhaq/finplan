@@ -43,7 +43,7 @@ namespace FinPlanProject
                 new ColumnHeader { Text = "Sumber Dana", Width = 190, TextAlign = HorizontalAlignment.Left },
                 new ColumnHeader { Text = "Jumlah", Width = 70, TextAlign = HorizontalAlignment.Center },
                 new ColumnHeader { Text = "Keterangan", Width = 70, TextAlign = HorizontalAlignment.Center },
-                new ColumnHeader { Text = "Planning", Width = 70, TextAlign = HorizontalAlignment.Center }
+                //new ColumnHeader { Text = "Planning", Width = 70, TextAlign = HorizontalAlignment.Center }
             });
         }
 
